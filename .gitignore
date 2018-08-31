@@ -2,3 +2,8 @@
 packages/
 Site/obj/
 Debug
+*.dll
+*.xml
+35
+*.pdb
+Sdl.Web.Site.dll.config
