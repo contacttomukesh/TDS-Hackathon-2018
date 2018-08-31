@@ -27,9 +27,7 @@ namespace SDL.Web.Modules.Thumb.Factory
             {
                 // Ignores to show the default thumb
             }
-            FileInfo fileInfo = new FileInfo(mediaFile.ThumbLocation);
-            string imageUrl = fileInfo.Exists ? WebRequestContext.Localization.Path + "/thumbimages/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + "/thumb/" + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/Content/images/2006/downloads/thumbnail-pdf.jpg"; ;
-            return imageUrl;
+            return mediaFile.ThumbLocation;
         }
 
         public void DeleteThumb(string thumbPath)
