@@ -1,0 +1,24 @@
+﻿@model SDL.Web.Modules.Thumb.Models.MediaFileItem
+@{
+    var mediaFileThumbImage = Model.ThumbImage != null ? Model.ThumbImage.Url : "";
+}
+<div class="@Model.HtmlClasses" @Html.DxaEntityMarkup()>
+    <div class="download-list">
+        @if (!string.IsNullOrEmpty(Model.GenerateThumbnail) && !Model.GenerateThumbnail.Equals("false"))
+        {
+            <img alt="download" onerror="this.src=@mediaFileThumbImage" width="66" src="@Model.GeneratedThumbImage" height="@Model.Height">
+        }
+        else
+        {
+            <i class="fa @Model.GetIconClass()"></i>
+        }
+        <div>
+            <a href="@Model.Url">@Model.FileName</a>
+            <small class="size" @Html.DxaPropertyMarkup(() => Model.FileSize)>(@Model.GetFriendlyFileSize())</small>
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                <small @Html.DxaPropertyMarkup(() => Model.Description)>@Model.Description</small>
+            }
+        </div>
+    </div>
+</div>

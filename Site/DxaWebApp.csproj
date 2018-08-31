@@ -28,6 +28,7 @@
     <SdlWebDeliveryPackageVersion>10.1.0</SdlWebDeliveryPackageVersion>
     <SdlWebContextClientPackageVersion>10.1.0</SdlWebContextClientPackageVersion>
     <SdlWebContextImagePackageVersion>10.1.0</SdlWebContextImagePackageVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +52,10 @@
     <NoWarn>1591,1574,1570,1572,1573</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GhostscriptSharp, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GhostScriptSharp.1.3.1.4\lib\net40\GhostscriptSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm">
       <SpecificVersion>False</SpecificVersion>
@@ -131,6 +136,9 @@
     </Reference>
     <Reference Include="Sdl.Web.Context.OData.Client">
       <HintPath>..\packages\Sdl.Web.Context.Client.$(SdlWebContextClientPackageVersion)\lib\net45\Sdl.Web.Context.OData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sdl.Web.Modules.Core">
+      <HintPath>..\packages\SDL.Web.Modules\Sdl.Web.Modules.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.Web.Mvc">
       <HintPath>..\packages\Sdl.Dxa.Framework.Web8.2.0.0\lib\net452\Sdl.Web.Mvc.dll</HintPath>
@@ -215,7 +223,70 @@
     </Content>
     <Content Include="Views\Shared\ServerError.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Areas\Core\Views\Entity\Accordion.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Article.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Article.featurephone.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Article.smartphone.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Article.tablet.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Carousel.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\CookieNotificationBar.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Download.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\EntityError.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\FooterLinkGroup.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\FooterLinks.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\HeaderLinks.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\HeaderLogo.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Image.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\LanguageSelector.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\OldBrowserNotificationBar.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Partials\GoogleMap.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Partials\GoogleStaticMap.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Partials\Teaser-ImageOverlay.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Partials\Teaser.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Place.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\SocialLinks.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\SocialSharing.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Tab.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Teaser-ImageOverlay.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\Teaser.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\TeaserColored.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\TeaserHero-ImageOverlay.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\TeaserMap.cshtml" />
+    <Content Include="Areas\Core\Views\Entity\YouTubeVideo.cshtml" />
+    <Content Include="Areas\Core\Views\List\List.cshtml" />
+    <Content Include="Areas\Core\Views\List\PagedList.cshtml" />
+    <Content Include="Areas\Core\Views\List\Partials\Pager.cshtml" />
+    <Content Include="Areas\Core\Views\List\ThumbnailList.cshtml" />
+    <Content Include="Areas\Core\Views\Navigation\Breadcrumb.cshtml" />
+    <Content Include="Areas\Core\Views\Navigation\LeftNavigation.cshtml" />
+    <Content Include="Areas\Core\Views\Navigation\SiteMap.cshtml" />
+    <Content Include="Areas\Core\Views\Navigation\SiteMapXml.cshtml" />
+    <Content Include="Areas\Core\Views\Navigation\TopNavigation.cshtml" />
+    <Content Include="Areas\Core\Views\Page\GeneralPage.cshtml" />
+    <Content Include="Areas\Core\Views\Page\GeneralPage.featurephone.cshtml" />
+    <Content Include="Areas\Core\Views\Page\GeneralPage.smartphone.cshtml" />
+    <Content Include="Areas\Core\Views\Page\GeneralPage.tablet.cshtml" />
+    <Content Include="Areas\Core\Views\Page\IncludePage.cshtml" />
+    <Content Include="Areas\Core\Views\Page\RedirectPage.cshtml" />
+    <Content Include="Areas\Core\Views\Page\_ViewStart.cshtml" />
+    <Content Include="Areas\Core\Views\Region\2-Column.cshtml" />
+    <Content Include="Areas\Core\Views\Region\3-Column.cshtml" />
+    <Content Include="Areas\Core\Views\Region\4-Column.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Content Tools.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Footer.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Header.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Hero.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Info.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Left Navigation.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Left.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Links.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Logo.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Main.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Nav.cshtml" />
+    <Content Include="Areas\Core\Views\Region\Tools.cshtml" />
+    <Content Include="Areas\Core\Views\web.config" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -223,6 +294,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Partials\XpmButton.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Thumb\Views\Shared\ThumbIcon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HackathonDemo\Views\Entity\HomePage.cshtml" />
+    <Content Include="Areas\HackathonDemo\Views\Page\Index.cshtml" />
+    <Content Include="Areas\HackathonDemo\Views\Region\Footer.cshtml" />
+    <Content Include="Areas\HackathonDemo\Views\Region\Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\HackathonDemo\Controllers\" />
+    <Folder Include="Areas\HackathonDemo\Models\" />
+    <Folder Include="thumbimages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDL.Web.Modules.Thumb\SDL.Web.Modules.Thumb.csproj">
+      <Project>{e407358b-2392-4797-aaa6-3a5edeafe0ba}</Project>
+      <Name>SDL.Web.Modules.Thumb</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Thumb\Views\web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -247,7 +341,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>57165</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:94/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -270,7 +364,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
-    </PostBuildEvent>
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "ls '$(SolutionDir)\packages\GhostScriptSharp.*\Tools\gsdll32.dll' | Sort -Descending | Select -First 1 | cp -Destination '$(TargetDir)'; exit 0"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

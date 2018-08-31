@@ -1,0 +1,16 @@
+﻿@*@model RegionModel
+@Html.DxaRegion("Info")
+<header id="page-header" class="navbar navbar-default">
+
+    <div>
+        <div class="row">
+            <div class="col-xs-12" role="navigation">
+                <div class="navbar-header">
+
+                    @Html.DxaRegion("Logo")
+                </div>
+                @Html.DxaRegions(exclude: "Logo,Info", containerSize: 12)
+            </div>
+        </div>
+    </div>
+</header>*@

@@ -1,4 +1,9 @@
 .vs/config/applicationhost.config
 packages/
-Site/bin/
 Site/obj/
+Debug
+*.dll
+*.xml
+35
+*.pdb
+Sdl.Web.Site.dll.config
