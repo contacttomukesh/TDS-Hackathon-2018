@@ -197,6 +197,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\HackathonDemo\HackathonDemoAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,6 +308,7 @@
   <ItemGroup>
     <Folder Include="Areas\HackathonDemo\Controllers\" />
     <Folder Include="Areas\HackathonDemo\Models\" />
+    <Folder Include="Areas\HackathonDemo\Views\Shared\" />
     <Folder Include="thumbimages\" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +319,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Thumb\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HackathonDemo\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Search\Views\Entity\SearchBox.cshtml" />
+    <Content Include="Areas\Search\Views\Entity\SearchItem.cshtml" />
+    <Content Include="Areas\Search\Views\Search\Partials\Pager.cshtml" />
+    <Content Include="Areas\Search\Views\Search\SearchResults.cshtml" />
+    <Content Include="Areas\Search\Views\web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
