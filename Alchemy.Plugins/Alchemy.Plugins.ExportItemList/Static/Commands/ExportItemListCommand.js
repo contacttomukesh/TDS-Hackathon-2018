@@ -71,7 +71,8 @@
                 for (j = 0; j < columns.length; j++) {
                     var attribute = columns[j];
                     var attributeValue = item[i].getAttribute(attribute);
-                    rowArray.push(attributeValue.replace(',','|'));
+                    if (attributeValue != null) { attributeValue = attributeValue.replace(',', '|');}
+                    rowArray.push(attributeValue);
                 }
                 csv.push(rowArray.join());
             }
