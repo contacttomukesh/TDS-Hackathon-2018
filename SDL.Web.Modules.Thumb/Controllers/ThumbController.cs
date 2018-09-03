@@ -78,8 +78,9 @@ namespace SDL.Web.Modules.Thumb.Controllers
                     string thumbPath = thumbGenerator.GenerateThumb(mediaFile);
                     mediaFile.GeneratedThumbImage = thumbPath;
                 }
-                else
-                   mediaFile.GeneratedThumbImage = outputPath;
+                FileInfo thumbfileInfo = new FileInfo(mediaFile.ThumbLocation);
+                string imageUrl = thumbfileInfo.Exists ? WebRequestContext.Localization.Path + "/" + _thumbFolder + "/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/Content/images/2006/downloads/thumbnail-pdf.jpg";
+                mediaFile.GeneratedThumbImage = imageUrl;
             }
             return mediaFile;
             //}           

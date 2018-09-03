@@ -210,6 +210,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="images\image_it1.JPG" />
+    <Content Include="images\imgit2.JPG" />
+    <Content Include="images\imgit3.JPG" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -330,6 +333,11 @@
     <Content Include="Areas\Search\Views\Search\SearchResults.cshtml" />
     <Content Include="Areas\Search\Views\web.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HackathonDemo\Views\Entity\Contact.cshtml" />
+    <Content Include="Areas\HackathonDemo\Views\Entity\FooterLinks.cshtml" />
+    <Content Include="Areas\HackathonDemo\Views\Entity\Header.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -355,7 +363,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57165</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:94/</IISUrl>
+          <IISUrl>http://staging.demowebsite.com</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
