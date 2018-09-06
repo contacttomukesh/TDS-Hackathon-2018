@@ -17,7 +17,7 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GetThumb(MediaFileItem mediaFile)
         {
-            return "/Content/images/2006/downloads/thumbnail-xls.jpg";
+            return "/thumbimages/default/thumbnail-xls.jpg";
         }
     }
 }

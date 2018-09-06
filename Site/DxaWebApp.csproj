@@ -197,7 +197,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\HackathonDemo\HackathonDemoAreaRegistration.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,9 +209,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="images\image_it1.JPG" />
-    <Content Include="images\imgit2.JPG" />
-    <Content Include="images\imgit3.JPG" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -311,8 +307,7 @@
   <ItemGroup>
     <Folder Include="Areas\HackathonDemo\Controllers\" />
     <Folder Include="Areas\HackathonDemo\Models\" />
-    <Folder Include="Areas\HackathonDemo\Views\Shared\" />
-    <Folder Include="thumbimages\" />
+    <Folder Include="thumbimages\default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SDL.Web.Modules.Thumb\SDL.Web.Modules.Thumb.csproj">
@@ -322,21 +317,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Thumb\Views\web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\HackathonDemo\Views\web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Search\Views\Entity\SearchBox.cshtml" />
-    <Content Include="Areas\Search\Views\Entity\SearchItem.cshtml" />
-    <Content Include="Areas\Search\Views\Search\Partials\Pager.cshtml" />
-    <Content Include="Areas\Search\Views\Search\SearchResults.cshtml" />
-    <Content Include="Areas\Search\Views\web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\HackathonDemo\Views\Entity\Contact.cshtml" />
-    <Content Include="Areas\HackathonDemo\Views\Entity\FooterLinks.cshtml" />
-    <Content Include="Areas\HackathonDemo\Views\Entity\Header.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -363,7 +343,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57165</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://staging.demowebsite.com</IISUrl>
+          <IISUrl>http://localhost:94/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

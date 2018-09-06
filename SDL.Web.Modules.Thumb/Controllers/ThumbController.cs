@@ -24,8 +24,6 @@ namespace SDL.Web.Modules.Thumb.Controllers
         [HandleSectionError(View = "SectionError")]
         public override ActionResult Entity(EntityModel entity, int containerSize = 0)
         {
-            //using (new Tracer(model))
-            //{
             SetupViewData(entity, containerSize);
             ViewModel model = base.EnrichModel(entity);
             var mediaFile = EnrichModel(model);
@@ -38,8 +36,6 @@ namespace SDL.Web.Modules.Thumb.Controllers
 
         protected override ViewModel EnrichModel(ViewModel model)
         {
-            //using (new Tracer(model))
-            //{
             MediaFileItem mediaFile = model as MediaFileItem;
             if (mediaFile != null && mediaFile.GenerateThumbnail.Equals("true"))
             {
@@ -71,16 +67,23 @@ namespace SDL.Web.Modules.Thumb.Controllers
                     }
                 }
                 mediaFile.ThumbLocation = outputPath;
+                string thumbPath = "";
                 if (!System.IO.File.Exists(outputPath))
                 {
                     ThumbFactory thumb = new ThumbProvider();
                     IThumbGenerator thumbGenerator = thumb.GetThumbGenerator(mediaFile.MimeType);
-                    string thumbPath = thumbGenerator.GenerateThumb(mediaFile);
+                    thumbPath = thumbGenerator.GetThumb(mediaFile);
+                }
+                if (thumbPath.Contains("/"))
+                {
                     mediaFile.GeneratedThumbImage = thumbPath;
                 }
-                FileInfo thumbfileInfo = new FileInfo(mediaFile.ThumbLocation);
-                string imageUrl = thumbfileInfo.Exists ? WebRequestContext.Localization.Path + "/" + _thumbFolder + "/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/Content/images/2006/downloads/thumbnail-pdf.jpg";
-                mediaFile.GeneratedThumbImage = imageUrl;
+                else
+                {
+                    FileInfo thumbfileInfo = new FileInfo(mediaFile.ThumbLocation);
+                    string imageUrl = thumbfileInfo.Exists ? WebRequestContext.Localization.Path + "/" + _thumbFolder + "/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/Content/images/2006/downloads/thumbnail-pdf.jpg";
+                    mediaFile.GeneratedThumbImage = imageUrl;
+                }
             }
             return mediaFile;
             //}           
@@ -89,7 +92,6 @@ namespace SDL.Web.Modules.Thumb.Controllers
         public string GetFilePathFromUrl(string urlPath, Localization loc)
         {
             var validPath = loc.BinaryCacheFolder+Uri.UnescapeDataString(urlPath);
-            //HttpContext httpContext = HttpContext.Current;
             var absolutePath = Server.MapPath("~/" + validPath);
             return (string.IsNullOrEmpty(absolutePath)) ?
                 string.Format("{0}/{1}", loc.BinaryCacheFolder, validPath) :
