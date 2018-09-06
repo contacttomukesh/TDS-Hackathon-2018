@@ -17,7 +17,7 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GetThumb(MediaFileItem mediaFile)
         {
-            throw new NotImplementedException();
+            return "/thumbimages/default/thumbnail-default.jpg";
         }
     }
 }

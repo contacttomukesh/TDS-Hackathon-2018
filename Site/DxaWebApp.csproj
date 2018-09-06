@@ -307,7 +307,7 @@
   <ItemGroup>
     <Folder Include="Areas\HackathonDemo\Controllers\" />
     <Folder Include="Areas\HackathonDemo\Models\" />
-    <Folder Include="thumbimages\" />
+    <Folder Include="thumbimages\default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SDL.Web.Modules.Thumb\SDL.Web.Modules.Thumb.csproj">
