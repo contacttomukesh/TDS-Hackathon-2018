@@ -4,15 +4,16 @@
 }
 <div class="@Model.HtmlClasses" @Html.DxaEntityMarkup()>
     <div class="download-list">
-        @if (!string.IsNullOrEmpty(Model.GenerateThumbnail) && !Model.GenerateThumbnail.Equals("false"))
+   
+        <div>
+            @if (!string.IsNullOrEmpty(Model.GenerateThumbnail) && !Model.GenerateThumbnail.Equals("false"))
         {
-            <img alt="download" onerror="this.src=@mediaFileThumbImage" width="66" src="@Model.GeneratedThumbImage" height="@Model.Height">
+            <img alt="download" onerror="this.src=@mediaFileThumbImage" width="@Model.Width" src="@Model.GeneratedThumbImage" height="@Model.Height">
         }
         else
         {
             <i class="fa @Model.GetIconClass()"></i>
         }
-        <div>
             <a href="@Model.Url">@Model.FileName</a>
             <small class="size" @Html.DxaPropertyMarkup(() => Model.FileSize)>(@Model.GetFriendlyFileSize())</small>
             @if (!string.IsNullOrEmpty(Model.Description))
