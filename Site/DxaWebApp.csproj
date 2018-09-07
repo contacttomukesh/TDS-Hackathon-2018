@@ -198,6 +198,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\HackathonDemo\HackathonDemoAreaRegistration.cs" />
+    <Compile Include="Areas\HackathonDemo\Models\CTA.cs" />
+    <Compile Include="Areas\HackathonDemo\Models\GenericTiles.cs" />
+    <Compile Include="Areas\HackathonDemo\Models\image.cs" />
+    <Compile Include="Areas\HackathonDemo\Models\TileCollection.cs" />
+    <Compile Include="Areas\HackathonDemo\Models\Tiles.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,7 +312,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\HackathonDemo\Controllers\" />
-    <Folder Include="Areas\HackathonDemo\Models\" />
     <Folder Include="thumbimages\default\" />
   </ItemGroup>
   <ItemGroup>

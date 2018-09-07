@@ -67,7 +67,7 @@ namespace SDL.Web.Modules.Thumb.Controllers
                     }
                 }
                 mediaFile.ThumbLocation = outputPath;
-                string thumbPath = "";
+                string thumbPath = outputPath;
                 if (!System.IO.File.Exists(outputPath))
                 {
                     ThumbFactory thumb = new ThumbProvider();
@@ -81,7 +81,7 @@ namespace SDL.Web.Modules.Thumb.Controllers
                 else
                 {
                     FileInfo thumbfileInfo = new FileInfo(mediaFile.ThumbLocation);
-                    string imageUrl = thumbfileInfo.Exists ? WebRequestContext.Localization.Path + "/" + _thumbFolder + "/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/Content/images/2006/downloads/thumbnail-pdf.jpg";
+                    string imageUrl = thumbfileInfo.Exists ? WebRequestContext.Localization.Path + "/" + _thumbFolder + "/" + WebRequestContext.Localization.Id + WebRequestContext.Localization.Path + System.IO.Path.ChangeExtension(mediaFile.FileName, ".jpg") : "/thumbimages/default/thumbnail-pdf.jpg";
                     mediaFile.GeneratedThumbImage = imageUrl;
                 }
             }
