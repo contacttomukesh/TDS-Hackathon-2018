@@ -7,14 +7,17 @@
    
         <div>
             @if (!string.IsNullOrEmpty(Model.GenerateThumbnail) && !Model.GenerateThumbnail.Equals("false"))
-        {
-            <img alt="download" onerror="this.src=@mediaFileThumbImage" width="@Model.Width" src="@Model.GeneratedThumbImage" height="@Model.Height">
-        }
-        else
-        {
-            <i class="fa @Model.GetIconClass()"></i>
-        }
-            <a href="@Model.Url">@Model.FileName</a>
+            {
+                <a href="@Model.Url">
+                    <img alt="download" onerror="this.src=@mediaFileThumbImage" width="@Model.Width" src="@Model.GeneratedThumbImage" height="@Model.Height">
+                 
+                </a>
+            }
+            else
+            {
+                    <i class="fa @Model.GetIconClass()"></i>
+                    }
+                   
             <small class="size" @Html.DxaPropertyMarkup(() => Model.FileSize)>(@Model.GetFriendlyFileSize())</small>
             @if (!string.IsNullOrEmpty(Model.Description))
             {
