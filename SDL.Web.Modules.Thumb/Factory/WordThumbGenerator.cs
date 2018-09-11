@@ -1,5 +1,9 @@
-﻿using SDL.Web.Modules.Thumb.Models;
+﻿using Microsoft.Office.Interop.Word;
+using SDL.Web.Modules.Thumb.Models;
 using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 
 namespace SDL.Web.Modules.Thumb.Factory
 {
@@ -12,7 +16,19 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GenerateThumb(MediaFileItem mediaFile)
         {
-            throw new NotImplementedException();
+            var doc = new Microsoft.Office.Interop.Word.Application().Documents.Open(FileName: mediaFile.MediaLocation, Visible: false, ReadOnly: true);
+
+            doc.ShowGrammaticalErrors = false;
+            doc.ShowRevisions = false;
+            doc.ShowSpellingErrors = false;
+
+            byte[] bytes = doc.Range().EnhMetaFileBits;
+
+            Image page = Image.FromStream(new MemoryStream(bytes));
+
+            doc.Close(WdSaveOptions.wdDoNotSaveChanges);
+            Helper.Helper.GetThumb(page, mediaFile.Width, mediaFile.Height);
+            return "";
         }
 
         public string GetThumb(MediaFileItem mediaFile)
