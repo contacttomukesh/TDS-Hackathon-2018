@@ -16,23 +16,32 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GenerateThumb(MediaFileItem mediaFile)
         {
-            var doc = new Microsoft.Office.Interop.Word.Application().Documents.Open(FileName: mediaFile.MediaLocation, Visible: false, ReadOnly: true);
+            try
+            {
+                var doc = new Microsoft.Office.Interop.Word.Application().Documents.Open(FileName: mediaFile.MediaLocation, Visible: false, ReadOnly: true);
 
-            doc.ShowGrammaticalErrors = false;
-            doc.ShowRevisions = false;
-            doc.ShowSpellingErrors = false;
+                doc.ShowGrammaticalErrors = false;
+                doc.ShowRevisions = false;
+                doc.ShowSpellingErrors = false;
 
-            byte[] bytes = doc.Range().EnhMetaFileBits;
+                byte[] bytes = doc.Range().EnhMetaFileBits;
 
-            Image page = Image.FromStream(new MemoryStream(bytes));
+                Image page = Image.FromStream(new MemoryStream(bytes));
 
-            doc.Close(WdSaveOptions.wdDoNotSaveChanges);
-            Helper.Helper.GetThumb(page, mediaFile.Width, mediaFile.Height);
-            return "";
+                doc.Close(WdSaveOptions.wdDoNotSaveChanges);
+                Helper.Helper.GetThumb(page, mediaFile.Width, mediaFile.Height);
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return "/thumbimages/default/thumbnail-word.png";
         }
 
         public string GetThumb(MediaFileItem mediaFile)
         {
+            if (mediaFile != null)
+                return this.GenerateThumb(mediaFile);
             return "/thumbimages/default/thumbnail-word.png";
         }
     }
