@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace SDL.Web.Modules.Thumb.Helper
                 gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 gr.DrawImage(originalImage, new System.Drawing.Rectangle(0, 0, width, height));
+                newImage.Save("c:/temp/result.png", ImageFormat.Png);
             }
             
         }

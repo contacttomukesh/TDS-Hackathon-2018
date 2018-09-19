@@ -1,4 +1,5 @@
 ﻿using GhostscriptSharp;
+using Sdl.Web.Common.Logging;
 using Sdl.Web.Mvc.Configuration;
 using SDL.Web.Modules.Thumb.Models;
 using System;
@@ -11,23 +12,22 @@ namespace SDL.Web.Modules.Thumb.Factory
         /// <summary>
         /// Create thumbnail of pdf file
         /// </summary>
-        /// <param name="inputFile">pdf file full path</param>
-        /// <param name="thumbnailPath">thumbnail image full path</param>
-        /// <param name="pageNo">page no of which to create thumbnail</param>
-        /// <param name="width">Width of thumbnail</param>
-        /// <param name="height">Height of thumbnail</param>
+        /// <param name="mediaFile">pdf file object</param>
         public string GenerateThumb(MediaFileItem mediaFile)
         {
-            try
+            using (new Tracer())
             {
-                if (!string.IsNullOrEmpty(mediaFile.ThumbLocation))
-                    GhostscriptWrapper.GeneratePageThumb(mediaFile.MediaLocation, mediaFile.ThumbLocation, 1, mediaFile.Width, mediaFile.Height);
+                try
+                {
+                    if (!string.IsNullOrEmpty(mediaFile.ThumbLocation))
+                        GhostscriptWrapper.GeneratePageThumb(mediaFile.MediaLocation, mediaFile.ThumbLocation, 1, mediaFile.Width, mediaFile.Height);
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(ex);
+                }
+                return mediaFile.ThumbLocation;
             }
-            catch (Exception ex)
-            {
-                // Ignores to show the default thumb
-            }
-            return mediaFile.ThumbLocation;
         }
 
         public void DeleteThumb(string thumbPath)
@@ -36,7 +36,7 @@ namespace SDL.Web.Modules.Thumb.Factory
         }
 
         public string GetThumb(MediaFileItem mediaFile)
-        {           
+        {
             if (mediaFile != null)
                 return this.GenerateThumb(mediaFile);
             return "";

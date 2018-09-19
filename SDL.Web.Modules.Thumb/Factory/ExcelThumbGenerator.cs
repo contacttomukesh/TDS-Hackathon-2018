@@ -1,10 +1,12 @@
 ﻿using SDL.Web.Modules.Thumb.Models;
 using System;
+using System.Configuration;
 
 namespace SDL.Web.Modules.Thumb.Factory
 {
     class ExcelThumbGenerator : IThumbGenerator
     {
+        readonly string _excelThumbPath = ConfigurationManager.AppSettings["excelThumbPath"];
         public void DeleteThumb(string thumbPath)
         {
             throw new NotImplementedException();
@@ -17,7 +19,7 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GetThumb(MediaFileItem mediaFile)
         {
-            return "/thumbimages/default/thumbnail-xls.jpg";
+            return _excelThumbPath;
         }
     }
 }

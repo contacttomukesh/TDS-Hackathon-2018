@@ -1,6 +1,7 @@
 ﻿using SDL.Web.Modules.Thumb.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace SDL.Web.Modules.Thumb.Factory
 {
     class ZipThumbGenerator : IThumbGenerator
     {
+        readonly string _zipThumbPath = ConfigurationManager.AppSettings["zipThumbPath"];
         public void DeleteThumb(string thumbPath)
         {
             throw new NotImplementedException();
@@ -21,7 +23,7 @@ namespace SDL.Web.Modules.Thumb.Factory
 
         public string GetThumb(MediaFileItem mediaFile)
         {
-            return "/thumbimages/default/thumbnail-zip.jpg";
+            return _zipThumbPath;
         }
     }
 }

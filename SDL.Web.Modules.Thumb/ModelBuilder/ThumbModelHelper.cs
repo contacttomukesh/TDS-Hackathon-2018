@@ -8,7 +8,6 @@ using System.Web;
 using System.Configuration;
 using System.IO;
 
-
 namespace SDL.Web.Modules.Thumb.ModelBuilder
 {
     public class ThumbModelHelper
