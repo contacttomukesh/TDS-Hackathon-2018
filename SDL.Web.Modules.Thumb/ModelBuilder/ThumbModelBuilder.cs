@@ -17,7 +17,8 @@ namespace SDL.Web.Modules.Thumb.ModelBuilder
                 if (entityModel != null && entityModel is MediaFileItem)
                 {
                     var mediaFile = (MediaFileItem)entityModel;
-                    if (mediaFile != null && mediaFile.GenerateThumbnail.Equals("true"))
+                    bool generateThumb = false;
+                    if (mediaFile != null && bool.TryParse(mediaFile.GenerateThumbnail, out generateThumb) && generateThumb)
                     {
                         //Generate thumbnail and assign it's value to the model.
                         ThumbModelHelper modelHelper = new ThumbModelHelper();

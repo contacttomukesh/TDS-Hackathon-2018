@@ -19,7 +19,8 @@ namespace SDL.Web.Modules.Thumb.Controllers
             using (new Tracer(model))
             {
                 MediaFileItem mediaFile = model as MediaFileItem;
-                if (mediaFile != null && mediaFile.GenerateThumbnail.Equals("true"))
+                bool generateThumb = false;
+                if (mediaFile != null && bool.TryParse(mediaFile.GenerateThumbnail, out generateThumb) && generateThumb)
                 {
                     ThumbModelHelper modelHelper = new ThumbModelHelper();
                     modelHelper.GenerateThumb(mediaFile);
